@@ -12,12 +12,14 @@ const refs = {
 };
 refs.timerEl.style.display = 'flex';
 refs.timerEl.style.justifyContent = 'space-around';
+
 refs.inputEl.addEventListener('input', onInputTime);
 refs.startEl.addEventListener('click', onStartTimer);
 
 refs.startEl.setAttribute('disabled', true);
 const date = new Date();
-let resFoo;
+let resConvert;
+
 function onInputTime(evt) {
   evt.preventDefault();
 }
