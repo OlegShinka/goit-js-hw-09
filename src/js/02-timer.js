@@ -27,10 +27,8 @@ function onInputTime(evt) {
 }
 function onStartTimer() {
   idTimer = setInterval(() => {
-    const realTime = new Date().getTime(); //*** */
-    remainTime = selectData - realTime;
+    remainTime = selectData - new Date().getTime();
     resConvert = convertMs(remainTime);
-    // console.log('selectedData', selectData);
 
     if (remainTime > 0) {
       addLeadingZero();
@@ -54,9 +52,7 @@ const fp = flatpickr(refs.inputEl, {
   minuteIncrement: 1,
 
   onClose(selectedDates) {
-    const realTime = new Date();
-
-    if (selectedDates[0] < realTime) {
+    if (selectedDates[0] < new Date()) {
       refs.startEl.setAttribute('disabled', true);
       alert('Please choose a date in the future');
       return;
