@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import Notiflix from 'notiflix';
 
 const refs = {
   timerEl: document.querySelector('.timer'),
@@ -54,7 +55,7 @@ const fp = flatpickr(refs.inputEl, {
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
       refs.startEl.setAttribute('disabled', true);
-      alert('Please choose a date in the future');
+      Notiflix.Notify.warning('Please choose a date in the future');
       return;
     } else {
       refs.startEl.removeAttribute('disabled', true);
