@@ -55,7 +55,12 @@ const fp = flatpickr(refs.inputEl, {
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
       refs.startEl.setAttribute('disabled', true);
-      Notiflix.Notify.warning('Please choose a date in the future');
+      // Notiflix.Notify.warning('Please choose a date in the future');
+      Notiflix.Report.warning(
+        'WARNING',
+        'Please choose a date in the future',
+        'Repeat'
+      );
       return;
     } else {
       refs.startEl.removeAttribute('disabled', true);
